@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "airbnb-typescript-prettier"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "import/prefer-default-export":"off",
+    "react/no-array-index-key":1,
+    "prefer-const":1,
+    "react/require-default-props":0,
+    "import/no-unresolved":0
+  }
+}
