@@ -1,1 +1,1 @@
-declare var BLOCK_SIZE:number;
+declare const BLOCK_SIZE: number;

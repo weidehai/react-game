@@ -1,3 +1,3 @@
 interface brickWall {
-  transform?:string;
+  transform?: string;
 }

@@ -21,9 +21,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "eslint src/",
     "stylelint": "stylelint src/**/*.scss",
     "sync:github": "git add -A && git commit && git push -u origin master",
-    "lint-fix": "eslint --fix --ext .js --ext .ts --ext .tsx --ext .jsx"
+    "lint-fix": "eslint --fix --ext .js --ext .ts --ext .tsx --ext .jsx src/",
+    "prepare":"husky install"
   },
   "browserslist": {
     "production": [
@@ -39,6 +41,7 @@
   },
   "devDependencies": {
     "eslint-config-airbnb-typescript-prettier": "^4.2.0",
+    "husky": "^7.0.2",
     "node-sass": "5.0.0",
     "prettier": "^2.3.2",
     "stylelint": "^13.13.1",

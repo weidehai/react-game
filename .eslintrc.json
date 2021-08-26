@@ -16,6 +16,7 @@
     "react/no-array-index-key":1,
     "prefer-const":1,
     "react/require-default-props":0,
-    "import/no-unresolved":0
+    "import/no-unresolved":0,
+    "@typescript-eslint/triple-slash-reference":0
   }
 }
