@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import BasicTank from 'src/components/tanks/BasicTank';
-import BrickWallPattern from 'src/components/wall/brickWall/Pattern';
 import Text from 'src/components/text/Text';
 import { key } from 'src/utils/index';
+import { useHistory } from 'react-router-dom';
 import Title from './Title';
 import Options from './Options';
 
@@ -10,6 +10,7 @@ const choices = ['single-player'];
 
 export default function Home(): JSX.Element {
   const [choosed, setChoosed] = useState('single-player');
+  const history = useHistory();
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       switch (e.key) {
@@ -20,6 +21,9 @@ export default function Home(): JSX.Element {
           if (choices.indexOf(choosed) === 0) setChoosed(choices.slice(-1)[0]);
           else setChoosed(choices[choices.indexOf(choosed) - 1]);
           break;
+        case key.Enter:
+          history.push('/play-stage');
+          break;
         default:
           break;
       }
@@ -28,10 +32,9 @@ export default function Home(): JSX.Element {
     return function clearEventListener() {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [choosed]);
+  }, [choosed, history]);
   return (
     <g className="home">
-      <BrickWallPattern />
       <g transform="scale(8) translate(27,15)">
         <Title />
       </g>

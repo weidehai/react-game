@@ -1,4 +1,5 @@
 import * as React from 'react';
+import BrickWallPattern from 'src/components/wall/brickWall/Pattern';
 
 const SCREEN_WIDTH = BLOCK_SIZE * 50;
 const SCREEN_HEIGHT = BLOCK_SIZE * 37.5;
@@ -21,6 +22,7 @@ export default function Screen({
       height={SCREEN_HEIGHT * ZOOM_LEVEL}
       viewBox={`0 0 ${SCREEN_WIDTH} ${SCREEN_HEIGHT}`}
     >
+      <BrickWallPattern />
       {children}
     </svg>
   );
