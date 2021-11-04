@@ -14,15 +14,18 @@ interface basicTankProps {
   args: {
     x?: number;
     y?: number;
+    scale?: number;
     direction?: 'top' | 'bottom' | 'left' | 'right';
   };
 }
 
 export default function BasicTank({ args }: basicTankProps): JSX.Element {
-  const { x = 0, y = 0, direction = 'top' } = args;
+  const { x = 0, y = 0, direction = 'top', scale = 1 } = args;
 
   return (
-    <g transform={`translate(${x},${y}) rotate(${dir[direction]})`}>
+    <g
+      transform={`translate(${x},${y}) rotate(${dir[direction]}) scale(${scale})`}
+    >
       <g className="left-tire">
         <rect x={0} y={2} height={1} width={1} fill={color.adret} />
         <rect x={1} y={2} height={1} width={2} fill={color.night} />

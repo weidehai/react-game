@@ -259,7 +259,7 @@ export default function Text(props: IProps): JSX.Element {
         if (Component == null)
           throw new Error(`Character '${char}' Not Implemented.`);
         return (
-          <g key={index} transform={`translate(${8 * index},0)`}>
+          <g key={char} transform={`translate(${8 * index},0)`}>
             <Component fill={fill} />
           </g>
         );
