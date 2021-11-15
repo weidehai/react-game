@@ -17,6 +17,7 @@ function App(): JSX.Element {
           </Route>
         </Switch>
       </Screen>
+      <div className="mask" />
     </div>
   );
 }

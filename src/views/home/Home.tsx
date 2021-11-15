@@ -3,6 +3,7 @@ import BasicTank from 'src/components/tanks/BasicTank';
 import Text from 'src/components/text/Text';
 import { key } from 'src/utils/index';
 import { useHistory } from 'react-router-dom';
+import { Consumer } from 'src/context';
 import Title from './Title';
 import Options from './Options';
 
@@ -34,33 +35,40 @@ export default function Home(): JSX.Element {
     };
   }, [choosed, history]);
   return (
-    <g className="home">
-      <g transform="scale(8) translate(27,15)">
-        <Title />
-      </g>
-      <g transform="scale(2) translate(168,140)">
-        <Options />
-      </g>
-      <g transform="scale(2) translate(160,137)">
-        <BasicTank
-          args={{
-            direction: 'right',
-            x: 0,
-            y: choices.indexOf(choosed) * 18,
-          }}
-        />
-      </g>
-      <g className="copyright" transform="scale(2) translate(117,230)">
-        <g>
-          <Text content="© 1980-1985 namco ltd" />
+    <Consumer>
+      {({ scale }) => (
+        <g className="home">
+          <g transform={`scale(${scale}) translate(11.7,15)`}>
+            <Title />
+          </g>
+          <g transform={`scale(${scale / 3}) translate(73,99)`}>
+            <Options />
+          </g>
+          <g transform={`scale(${scale / 4.5}) translate(105,148)`}>
+            <BasicTank
+              args={{
+                direction: 'right',
+                x: 0,
+                y: choices.indexOf(choosed) * 18,
+              }}
+            />
+          </g>
+          <g
+            className="copyright"
+            transform={`scale(${scale / 3}) translate(21,150)`}
+          >
+            <g>
+              <Text content="© 1980-1985 namco ltd" />
+            </g>
+            <g transform="translate(7,14)">
+              <Text content="all rights reserved" />
+            </g>
+            <g transform="translate(28,28)">
+              <Text content="retro by wone" />
+            </g>
+          </g>
         </g>
-        <g transform="translate(7,14)">
-          <Text content="all rights reserved" />
-        </g>
-        <g transform="translate(28,28)">
-          <Text content="retro by wone" />
-        </g>
-      </g>
-    </g>
+      )}
+    </Consumer>
   );
 }
